@@ -59,10 +59,10 @@
         palette.appendChild(div);
       }
 
-      function addGradientBlock(hex1, hex2, hex3) {
+      function addGradientBlock(hex1, hex2) {
         var div = document.createElement('div');
         div.className = "grad-block";
-        div.style.background = `linear-gradient(to left, ${hex1}, ${hex2}, ${hex3})`;
+        div.style.background = `linear-gradient(to left, ${hex1}, ${hex2})`;
         div.style.width = `${img.offsetWidth}px`;
         palette.appendChild(div);
       }
@@ -88,8 +88,7 @@
                 key: key,
                 swatch: swatch,
               });
-              // var bodyText = swatch.getBodyTextColor();
-              // readable[key] = hex;
+              readable[key] = swatch.getHex();
               // addColorBlock(hex,key);
             // } else {
               // readable[key] = null
@@ -108,7 +107,21 @@
             return b.swatch.getHsl()[2] - a.swatch.getHsl()[2];
           });
 
-          addGradientBlock(top3[0].hex, top3[1].hex, top3[2].hex);
+          let color1, color2;
+          if (readable['Vibrant']) {
+            color1 = readable['Vibrant'];
+          } else if (readable['LightVibrant']) {
+            color1 = readable['LightVibrant'];
+          } else if (readable['LightMuted']) {
+            color1 = readable['LightMuted'];
+          }
+
+          if (readable['Muted']) {
+            color2 = readable['Muted'];
+          } else if (readable['DarkVibrant']) {
+            color2 = readable['DarkVibrant'];
+          }
+          addGradientBlock(color1, color2);
           // addGradientBlock(populations[1].hex, populations[1].key);
           // addGradientBlock(populations[2].hex, populations[2].key);
           // console.log(populations);
