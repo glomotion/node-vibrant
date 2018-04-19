@@ -49,6 +49,7 @@
     "build": "npm run build:browser && npm run build:node",
     "build:browser": "./node_modules/.bin/webpack --config webpack.config.js",
     "build:node": "./node_modules/.bin/tsc",
+    "demo": "python -m SimpleHTTPServer 8000",
     "pretest": "npm run clean && npm run build",
     "test": "npm run test:node && npm run test:browser",
     "test:node": "./node_modules/.bin/mocha lib/test/**/*.spec.js",
