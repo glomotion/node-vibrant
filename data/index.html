@@ -8,6 +8,7 @@
       height: 64px;
       line-height: 64px;
       padding: 0 10px;
+      margin: 2px 0 0;
       display: inline-block;
       text-align: center;
       font-family: sans-serif;
@@ -15,6 +16,7 @@
     .grad-block {
       display: block;
       height: 64px;
+      margin: 2px 0 0;
     }
     img {
       display: block;
@@ -50,11 +52,12 @@
       palette.className = "palette";
       section.appendChild(palette);
 
-      function addColorBlock(hex, name) {
+      function addColorBlock(hex, name, pop) {
         var div = document.createElement('div');
         div.innerHTML = name;
         div.className = "color-block";
         div.style.background = hex;
+        div.setAttribute('data-pop', pop);
         // div.style.color = bodyText;
         palette.appendChild(div);
       }
@@ -100,7 +103,7 @@
             return b.pop - a.pop;
           });
           populations.forEach(function(item) {
-            addColorBlock(item.hex, item.key);
+            addColorBlock(item.hex, item.key, item.pop);
           });
           const top3 = [populations[0], populations[1], populations[2]];
           top3.sort(function(a,b) {
@@ -121,8 +124,15 @@
           } else if (readable['DarkVibrant']) {
             color2 = readable['DarkVibrant'];
           }
+
+          if (readable['LightVibrant'] && readable['Muted']) {
+            color1 = readable['LightVibrant'];
+            color2 = readable['Muted'];
+          }
+
           addGradientBlock(color1, color2);
-          // addGradientBlock(populations[1].hex, populations[1].key);
+          addGradientBlock(populations[1].hex, populations[0].hex);
+
           // addGradientBlock(populations[2].hex, populations[2].key);
           // console.log(populations);
           // result[src] = readable
