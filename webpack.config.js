@@ -28,10 +28,10 @@ module.exports = {
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
-        library: 'Vibrant',
-        libraryTarget: 'umd',
-        libraryExport: 'default',
-        umdNamedDefine: true,
+        // library: 'Vibrant',
+        // libraryTarget: 'umd',
+        // libraryExport: 'default',
+        // umdNamedDefine: true,
     },
     plugins: [
         new webpack.optimize.UglifyJsPlugin({

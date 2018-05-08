@@ -27,13 +27,13 @@
 </head>
 
 <body>
-  <script src='/dist/vibrant.worker.js'>
+  <script src='/dist/vibrant.worker.js'></script>
 
-  </script>
   <h1>node-vibrant tests</h1>
   <hr>
   <script type="text/javascript">
     window.result = {}
+
     function test(src) {
 
       var section = document.createElement('section');
@@ -44,6 +44,7 @@
       section.appendChild(h2)
 
       var img = document.createElement('img');
+      // img.crossOrigin = "Anonymous";
       img.src = src;
 
       section.appendChild(img);
@@ -133,7 +134,7 @@
           }
 
           addGradientBlock(color1, color2);
-          addGradientBlock(populations[1].hex, populations[0].hex);
+          // addGradientBlock(populations[1].hex, populations[0].hex);
 
           // addGradientBlock(populations[2].hex, populations[2].key);
           // console.log(populations);
@@ -141,20 +142,33 @@
         })
         .catch(console.error.bind(console))
     }
-    test('/data/1.jpg')
-    test('/data/2.jpg')
-    test('/data/3.jpg')
-    test('/data/4.jpg')
-    test('https://avatars3.githubusercontent.com/u/922715?v=3&s=460')
-    test('/data/5.jpg')
-    test('/data/6.jpg')
-    test('/data/7.jpg')
-    test('/data/8.jpg')
-    test('/data/9.jpg')
-    test('/data/10.jpg')
-    test('/data/11.jpg')
-    test('/data/12.jpg')
-    test('/data/13.jpg')
-    test('/data/14.jpg')
+    // test('/data/1.jpg')
+    // test('/data/2.jpg')
+    // test('/data/3.jpg')
+    // test('/data/4.jpg')
+    // test('https://avatars3.githubusercontent.com/u/922715?v=3&s=460')
+    // test('/data/5.jpg')
+    // test('/data/6.jpg')
+    // test('/data/7.jpg')
+    // test('/data/8.jpg')
+    // test('/data/9.jpg')
+    // test('/data/10.jpg')
+    // test('/data/11.jpg')
+    // test('/data/12.jpg')
+    // test('/data/13.jpg')
+    // test('/data/14.jpg')
+
+    // PIANOLA TEST IMAGES:
+    test("/data/gotye.jpg")
+    test("/data/drake.jpg")
+    test("/data/drdre.jpg")
+    test("/data/billyjoel.jpg")
+    test("/data/flume.jpg")
+    test("/data/gang.jpg")
+    test("/data/nirvana.jpg")
+    test("/data/kendrick.jpg")
+    test("/data/gambino.jpg")
+    test("/data/vera.jpg")
+
   </script>
 </body>
