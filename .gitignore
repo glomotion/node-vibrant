@@ -84,7 +84,6 @@ bower_components
 
 lib/
 
-dist/
 .vscode/
 
 yarn\.lock
